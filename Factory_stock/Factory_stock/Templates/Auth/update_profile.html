@@ -1,0 +1,70 @@
+{% extends 'Base/base.html' %}
+{% block content %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style> 
+            table, th, td { 
+                border-style: inset; 
+                border-width:6px;
+                border-collapse: collapse; 
+                
+              
+            } 
+            th, td { 
+                padding: 20px; 
+                text-align: left;   
+                  
+            } 
+            
+            .button {
+              display: inline-block;
+              padding: 5px 10px;
+              font-size:15px;
+              cursor: pointer;
+              text-align: center;
+              text-decoration: none;
+              outline: none;
+              color: #fff;
+              background-color: #4CAF50;
+              border: none;
+              border-radius: 15px;
+              box-shadow: 0 5px #999;
+            }
+            .button:hover {background-color: #3e8e41}
+            .button:active {
+              background-color: #3e8e41;
+              box-shadow: 0 2px #666;
+              transform: translateY(4px);
+            }
+            
+            </style>
+            
+            
+
+</head>
+<body>
+       
+
+        <form method="POST">
+                {% csrf_token %}
+                    <fieldset class="form-group">
+                        <legend class="border-bottom mb-4" style="font-size: 1.5em"></legend>
+                        {{ u_form }}
+                    </fieldset><br>
+        </div>
+        <div>
+          <button type="button" class="btn btn-secondary">Close</button>
+        <a href="{% url 'profile' %}"> <button type="submit" class="btn btn-primary">Save changes</button></a>
+        </div>
+    </form>
+        {% endblock %}
+</body>
+</html>
+
+
+

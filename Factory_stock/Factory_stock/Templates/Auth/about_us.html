@@ -1,0 +1,52 @@
+{% extends 'Base/base.html' %}
+<style>
+
+        .login-box{
+          position:absolute;
+          top:60%;
+          left:50%;
+          transform:translate(-50%,-50%);
+          width:350px;
+          padding:50px 40px;
+          height:300px;
+          box-sizing:border-box;
+          color:#ffffff;
+          background:rgba(0,0,0,.7);
+      
+      
+          
+        }
+        .user{
+          width:100px;
+          height:100px;
+          border-radius:50%;
+          overflow:hidden;
+          position:absolute;
+          top:calc(-100px/2);
+          left:calc(50% - 50px);
+        }
+      </style>
+
+{% block content %}
+
+<div style="position:absolute;
+top:60%;
+left:50%;
+transform:translate(-50%,-50%);
+width:700px;
+padding:50px 40px;
+height:400px;
+box-sizing:border-box;
+color:#ffffff;
+background:rgba(0,0,0,.7);" >
+
+        <h1 style="text-align: center; ">About_Us</h1>
+        <br>
+        <p style="font-size: 25px">We are Maharashtra based food products company. </p>
+        <p style="font-size: 25px">We have a vast expirence with food industry based in Andhra Pradesh. </p>
+        <p style="font-size: 25px">Our products are: Wheels Popcorn Pasta CornBalls CornKaju Noodles. </p>
+        
+
+</div>
+    
+{% endblock %}

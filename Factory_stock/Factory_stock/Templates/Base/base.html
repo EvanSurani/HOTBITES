@@ -1,0 +1,78 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Bootstrap Example</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+  <style>
+
+    body{
+
+      background: rgb(172,168,219);
+      background: linear-gradient(90deg, rgba(172,168,219,1) 1%, rgba(155,223,199,1) 25%, rgba(226,240,242,1) 100%); 
+     
+    }
+  </style>
+</head>
+<body>
+<br>
+  <nav class="navbar navbar-default">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="{% url 'home' %}">RNJ Hot Bites</a>
+      </div>
+      <div id="navbar" class="navbar-collapse collapse">
+        <ul class="nav navbar-nav">
+          <li class="active"><a href="{% url 'home' %}">Home</a></li>
+          <li class="active"><a href="{% url 'about_us' %}">About Us</a></li>
+          <li class="active"><a href="{% url 'contact_us' %}">Contact Us</a></li>
+          {% if user.is_superuser %}
+
+          <li><a href="{% url 'view_user' %}">View Users</a></li>
+          <li><a href="{% url 'profile' %}">Profile</a></li>
+          <li><a href="{% url 'add_product_cat' %}">Add Product Category</a></li>
+          <li><a href="{% url 'view_product_cat' %}">View Category</a></li>
+
+          {% elif user.is_authenticated %}
+
+          <li><a href="{% url 'profile' %}">Profile</a></li>
+          
+          {% endif %}
+
+          </ul>
+    
+          
+        <ul class="nav navbar-nav navbar-right">
+
+            {% if user.is_authenticated %}
+
+          <li><a href="{% url 'logout' %}">Logout</a></li>
+
+          {% else %}
+
+          <li><a href="{% url 'login' %}">Login</a></li>
+
+          <li><a href="{% url 'registration' %}">Register</a></li>
+
+          {% endif %}
+        </ul>
+      </div><!--/.nav-collapse -->
+    </div><!--/.container-fluid -->
+  </nav>
+  
+<div class="container">
+    {% block content %}{% endblock %}
+</div>
+
+</body>
+</html>

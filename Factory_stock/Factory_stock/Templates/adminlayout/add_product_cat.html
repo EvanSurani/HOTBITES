@@ -1,0 +1,61 @@
+{% extends 'adminlayout/base_admin.html' %}
+{% block content %}
+<style>
+    .login-box{
+        position:absolute;
+        top:60%;
+        left:50%;
+        transform:translate(-50%,-50%);
+        width:500px;
+        padding:60px 40px;
+        height:350px;
+        box-sizing:border-box;
+        color:#ffffff;
+        background:rgba(0,0,0,.8);
+    
+    
+        
+      }
+    </style>
+    
+    
+    
+    <div class="container">
+        
+        <h1 style="text-align:center;">Add Product Category</h1>
+    
+       <div class="login-box">
+
+
+      <form action="{% url 'createpost' %}" method="POST" enctype="multipart/form-data">
+        {% csrf_token %}
+        <div class="clearfix" style="align-self: center">
+            <div class="form-group col-md-4">
+                <div>
+                  <label for="productname">Product Name</label>
+                  <input type="text" class="form-control" name="name" placeholder="Enter product name" required="">
+                </div><br>
+                
+                          <div> 
+                              <label for="productname">Category</label>
+                              <input type="text" class="form-control" name="category" placeholder="Enter Category" required="">
+                          </div><br>
+                          <br>
+                          <div>
+                              <input type="submit" class="btn btn-success" value="Add product" name='submit'>
+                          </div>
+                      </div>
+                  </div>
+              
+              </form>
+              
+            </div>
+        </div>
+    
+  
+    
+    
+    
+    </body>
+    </html>
+    {% endblock %} -->

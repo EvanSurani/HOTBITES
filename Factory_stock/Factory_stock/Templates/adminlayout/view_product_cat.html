@@ -1,0 +1,70 @@
+{% extends 'adminlayout/base_admin.html' %}
+
+{% block content %}
+    <style> 
+            table, th, td { 
+                border-style: inset; 
+                border-width:6px;
+                border-collapse: collapse; 
+                
+              
+            } 
+            th, td { 
+                padding: 20px; 
+                text-align: left;   
+                  
+            } 
+            
+            .button {
+              display: inline-block;
+              padding: 5px 10px;
+              font-size:15px;
+              cursor: pointer;
+              text-align: center;
+              text-decoration: none;
+              outline: none;
+              color: #fff;
+              background-color: #4CAF50;
+              border: none;
+              border-radius: 15px;
+              box-shadow: 0 5px #999;
+            }
+            .button:hover {background-color: #3e8e41}
+            .button:active {
+              background-color: #3e8e41;
+              box-shadow: 0 2px #666;
+              transform: translateY(4px);
+            }
+            
+            </style>
+            
+            
+
+</head>
+<body>
+<table style="width:100%"> 
+          
+       <tr>
+						<th>Id</th>
+						<th>Product name</th>
+                        <th>Category</th>
+                        <th>Delete</th>
+					</tr>
+				</thead>
+				{% for bb in aa %}   
+				<tr>
+					<td>{{bb.id}}</td>
+					<td>{{bb.product_name}}</td>
+					<td>{{bb.category}}</td>
+					<td><form action="{% url 'del_product_cat' %}" method="GET" >
+              <button type="submit" value='{{ bb.id }}' name='pk' class="btn btn-danger">Delete</button>
+              <a href="{% url 'update_cat' 4 %}">edit</a>
+						</form>
+					</td>
+				</tr><br>
+          
+       
+        {% endfor %}
+       
+        </table> 
+{% endblock %}
